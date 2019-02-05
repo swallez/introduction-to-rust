@@ -6,7 +6,7 @@ The rendered version at [https://swallez.github.io/introduction-to-rust/](https:
 
 ### How this presentation was prepared
 
-The slides are rendered using [mdBook](http://rust-lang-nursery.github.io/mdBook/), the same tool used to render the [Rust Book](https://doc.rust-lang.org/book/). Along with being a dogfooding experiment, this allows the code in the slide to be run or even modified from the presentation itself. Live coding within the slideshow is pretty cool!
+The slides are rendered using [mdBook](http://rust-lang-nursery.github.io/mdBook/), the same tool used to render the [Rust Book](https://doc.rust-lang.org/book/). Along with being a dogfooding experiment, this allows the code examples to be run or even modified from the presentation itself. Live coding within the slideshow is pretty cool!
 
 The default theme was tweaked a bit for slide rendering. The slides are written in a [single markdown file](src/all-slides.md) which is split into individual pages expected by mdbook [using good old `awk`](src/split-slides.sh).
 
