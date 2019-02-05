@@ -2,7 +2,7 @@
 
 These are the slides of the talk I gave at the first session of the [Toulouse Rust meetup](https://www.meetup.com/fr-FR/Toulouse-Rust-Meetup/) in January 2019.
 
-The rendered version at [https://swallez.github.io/introduction-to-rust/](https://swallez.github.io/introduction-to-rust/slide1.html)
+The rendered version at [https://swallez.github.io/introduction-to-rust/](https://swallez.github.io/introduction-to-rust/slide-1.html)
 
 ### How this presentation was prepared
 
