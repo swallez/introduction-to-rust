@@ -16,8 +16,8 @@ impl Drop for DropTracer {
 }
 
 fn main() {
-    let b = DropTracer(0);
-    println!("a contains {}", b.0);
+    let a = DropTracer(0);
+    println!("a contains {}", a.0);
 
     let mut b = Box::new(DropTracer(1));
     println!("b contains {}", b.0);

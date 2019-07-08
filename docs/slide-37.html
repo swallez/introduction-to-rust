@@ -127,7 +127,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#automatic-memory-reclamation" id="automatic-memory-reclamation"><h1>Automatic memory reclamation</h1></a>
+                        <h1><a class="header" href="#automatic-memory-reclamation" id="automatic-memory-reclamation">Automatic memory reclamation</a></h1>
 <p><code>Box::new(node)</code> allocates on the heap and <code>node</code> is <em>moved</em> inside the box. Ownership of the box can move, but you
 can only get a reference to its content.</p>
 <p>The memory is automatically freed when the box has no more owner (it is &quot;dropped&quot;).</p>
@@ -140,8 +140,8 @@ impl Drop for DropTracer {
 }
 
 fn main() {
-    let b = DropTracer(0);
-    println!(&quot;a contains {}&quot;, b.0);
+    let a = DropTracer(0);
+    println!(&quot;a contains {}&quot;, a.0);
 
     let mut b = Box::new(DropTracer(1));
     println!(&quot;b contains {}&quot;, b.0);
