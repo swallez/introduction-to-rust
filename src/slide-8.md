@@ -3,7 +3,7 @@
 
 <div style="float: left; width: 47%;">
 
-![](media/crates-io.png)
+![](media/crates-io-2.jpg)
 
 </div>
 
@@ -19,6 +19,8 @@ http://www.arewewebyet.org/
 http://arewegameyet.com/  
 https://areweideyet.com/  
 http://www.arewelearningyet.com/
+https://docs.rust-embedded.org/
 
 </div>
+<div style="clear: both"></div>
 

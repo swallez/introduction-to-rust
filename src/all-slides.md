@@ -23,7 +23,7 @@
 
 ### Sylvain Wallez - @bluxte
 
-### Tech lead - Elastic Cloud
+### Principal engineer - Elastic
 
 Previously tech lead, CTO, architect, trainer, developer...  
 ...at OVH, Actoboard, Sigfox, Scoop.it, Joost, Anyware
@@ -81,7 +81,7 @@ Member of the Apache Software Foundation since 2003
 
 <div style="float: left; width: 40%;">
 
-![](media/book-oreilly.jpg)
+![](media/book-oreilly-2.jpg)
 
 </div>
 
@@ -89,9 +89,10 @@ Member of the Apache Software Foundation since 2003
 
 ![](media/book-nostarch.png)
 
-<small>Online at https://www.rust-lang.org/</small>
+<small> Online at https://www.rust-lang.org/ </small>
 
 </div>
+<div style="clear: both"></div>
 
 ----------------
 
@@ -102,15 +103,17 @@ Member of the Apache Software Foundation since 2003
   * Parts of Firefox are written in Rust
   
 * First stable release in 2015
-  * New releases every 6 weeks, “edition 2018” released last December
+  * New releases every 6 weeks, “edition 2021” released in Oct '21
 
 * Who uses it?
   * AWS: Firecracker powers Lambda and Fargate
   * Google: parts of the Fuschia operating system
+  * Linux: 2nd official language for the Kernel!
   * CloudFlare: quic / http 3 implementation
   * Dropbox: file storage
   * Clever Cloud: reverse proxy
   * Atlassian, Canonical, Coursera, Chef, Deliveroo, NPM, Sentry… 
+  * Growing ecosystem for embedded development
 
 -----------------
 
@@ -118,7 +121,7 @@ Member of the Apache Software Foundation since 2003
 
 <div style="float: left; width: 47%;">
 
-![](media/crates-io.png)
+![](media/crates-io-2.jpg)
 
 </div>
 
@@ -134,8 +137,10 @@ http://www.arewewebyet.org/
 http://arewegameyet.com/  
 https://areweideyet.com/  
 http://www.arewelearningyet.com/
+https://docs.rust-embedded.org/
 
 </div>
+<div style="clear: both"></div>
 
 --------------
 
@@ -765,8 +770,8 @@ impl Drop for DropTracer {
 }
 
 fn main() {
-    let b = DropTracer(0);
-    println!("a contains {}", b.0);
+    let a = DropTracer(0);
+    println!("a contains {}", a.0);
 
     let mut b = Box::new(DropTracer(1));
     println!("b contains {}", b.0);
@@ -874,6 +879,7 @@ fn main() {
 * error handling
 * multithreading and the `Sync` and `Send` traits
 * `Mutex` and `RwLock` from the standard library
+* async programming
 * interior mutability
 * etc...
 
@@ -893,7 +899,7 @@ If you want to use it, take the time to _learn_ it. Ferris will thank you :-)
 
 &nbsp;
 
-<span style="font-size: 50%">
+<span style="font-size: 70%">
     Presentation contents inspired by https://stevedonovan.github.io/rust-gentle-intro/<br>
     Sources available at https://github.com/swallez/introduction-to-rust/
 </span>

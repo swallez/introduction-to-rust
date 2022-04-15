@@ -3,7 +3,7 @@
 
 <div style="float: left; width: 40%;">
 
-![](media/book-oreilly.jpg)
+![](media/book-oreilly-2.jpg)
 
 </div>
 
@@ -11,7 +11,8 @@
 
 ![](media/book-nostarch.png)
 
-<small>Online at https://www.rust-lang.org/</small>
+<small> Online at https://www.rust-lang.org/ </small>
 
 </div>
+<div style="clear: both"></div>
 

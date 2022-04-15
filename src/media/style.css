@@ -1,5 +1,33 @@
+
 #content {
-    font-size: 1.2rem;
+    font-size: 2rem;
+}
+
+/*
+.left-buttons {
+    display: block;
+}
+
+#menu-bar-sticky-container {
+    top: 0;
+}
+
+ */
+
+.menu-title {
+    display: none;
+}
+
+#print-button {
+    display: none;
+}
+
+#theme-toggle {
+    display: none;
+}
+
+.nav-wide-wrapper i {
+    display: none;
 }
 
 h1 {
@@ -38,3 +66,8 @@ hr {
     padding-top: 4em;
     text-align: center;
 }
+
+.content {
+    padding-top: 100px;
+}
+

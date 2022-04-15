@@ -10,7 +10,7 @@
 
 ### Sylvain Wallez - @bluxte
 
-### Tech lead - Elastic Cloud
+### Principal engineer - Elastic
 
 Previously tech lead, CTO, architect, trainer, developer...  
 ...at OVH, Actoboard, Sigfox, Scoop.it, Joost, Anyware

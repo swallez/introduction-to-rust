@@ -4,6 +4,7 @@
 * error handling
 * multithreading and the `Sync` and `Send` traits
 * `Mutex` and `RwLock` from the standard library
+* async programming
 * interior mutability
 * etc...
 

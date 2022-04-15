@@ -1,14 +1,20 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Introduction to Rust</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
@@ -17,8 +23,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -26,17 +31,14 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
         <link rel="stylesheet" href="src/media/style.css">
-        
 
-        
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -60,8 +62,11 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -77,44 +82,43 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="slide-1.html"><strong aria-hidden="true">1.</strong> Slide 1</a></li><li><a href="slide-2.html"><strong aria-hidden="true">2.</strong> Slide 2</a></li><li><a href="slide-3.html"><strong aria-hidden="true">3.</strong> Slide 3</a></li><li><a href="slide-4.html"><strong aria-hidden="true">4.</strong> Slide 4</a></li><li><a href="slide-5.html"><strong aria-hidden="true">5.</strong> Slide 5</a></li><li><a href="slide-6.html"><strong aria-hidden="true">6.</strong> Slide 6</a></li><li><a href="slide-7.html"><strong aria-hidden="true">7.</strong> Slide 7</a></li><li><a href="slide-8.html"><strong aria-hidden="true">8.</strong> Slide 8</a></li><li><a href="slide-9.html"><strong aria-hidden="true">9.</strong> Slide 9</a></li><li><a href="slide-10.html"><strong aria-hidden="true">10.</strong> Slide 10</a></li><li><a href="slide-11.html"><strong aria-hidden="true">11.</strong> Slide 11</a></li><li><a href="slide-12.html"><strong aria-hidden="true">12.</strong> Slide 12</a></li><li><a href="slide-13.html"><strong aria-hidden="true">13.</strong> Slide 13</a></li><li><a href="slide-14.html"><strong aria-hidden="true">14.</strong> Slide 14</a></li><li><a href="slide-15.html"><strong aria-hidden="true">15.</strong> Slide 15</a></li><li><a href="slide-16.html"><strong aria-hidden="true">16.</strong> Slide 16</a></li><li><a href="slide-17.html"><strong aria-hidden="true">17.</strong> Slide 17</a></li><li><a href="slide-18.html"><strong aria-hidden="true">18.</strong> Slide 18</a></li><li><a href="slide-19.html"><strong aria-hidden="true">19.</strong> Slide 19</a></li><li><a href="slide-20.html"><strong aria-hidden="true">20.</strong> Slide 20</a></li><li><a href="slide-21.html"><strong aria-hidden="true">21.</strong> Slide 21</a></li><li><a href="slide-22.html"><strong aria-hidden="true">22.</strong> Slide 22</a></li><li><a href="slide-23.html"><strong aria-hidden="true">23.</strong> Slide 23</a></li><li><a href="slide-24.html"><strong aria-hidden="true">24.</strong> Slide 24</a></li><li><a href="slide-25.html"><strong aria-hidden="true">25.</strong> Slide 25</a></li><li><a href="slide-26.html"><strong aria-hidden="true">26.</strong> Slide 26</a></li><li><a href="slide-27.html"><strong aria-hidden="true">27.</strong> Slide 27</a></li><li><a href="slide-28.html"><strong aria-hidden="true">28.</strong> Slide 28</a></li><li><a href="slide-29.html"><strong aria-hidden="true">29.</strong> Slide 29</a></li><li><a href="slide-30.html"><strong aria-hidden="true">30.</strong> Slide 30</a></li><li><a href="slide-31.html"><strong aria-hidden="true">31.</strong> Slide 31</a></li><li><a href="slide-32.html"><strong aria-hidden="true">32.</strong> Slide 32</a></li><li><a href="slide-33.html"><strong aria-hidden="true">33.</strong> Slide 33</a></li><li><a href="slide-34.html"><strong aria-hidden="true">34.</strong> Slide 34</a></li><li><a href="slide-35.html"><strong aria-hidden="true">35.</strong> Slide 35</a></li><li><a href="slide-36.html"><strong aria-hidden="true">36.</strong> Slide 36</a></li><li><a href="slide-37.html"><strong aria-hidden="true">37.</strong> Slide 37</a></li><li><a href="slide-38.html"><strong aria-hidden="true">38.</strong> Slide 38</a></li><li><a href="slide-39.html"><strong aria-hidden="true">39.</strong> Slide 39</a></li><li><a href="slide-40.html"><strong aria-hidden="true">40.</strong> Slide 40</a></li><li><a href="slide-41.html"><strong aria-hidden="true">41.</strong> Slide 41</a></li><li><a href="slide-42.html"><strong aria-hidden="true">42.</strong> Slide 42</a></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="slide-1.html"><strong aria-hidden="true">1.</strong> Slide 1</a></li><li class="chapter-item expanded "><a href="slide-2.html"><strong aria-hidden="true">2.</strong> Slide 2</a></li><li class="chapter-item expanded "><a href="slide-3.html"><strong aria-hidden="true">3.</strong> Slide 3</a></li><li class="chapter-item expanded "><a href="slide-4.html"><strong aria-hidden="true">4.</strong> Slide 4</a></li><li class="chapter-item expanded "><a href="slide-5.html"><strong aria-hidden="true">5.</strong> Slide 5</a></li><li class="chapter-item expanded "><a href="slide-6.html"><strong aria-hidden="true">6.</strong> Slide 6</a></li><li class="chapter-item expanded "><a href="slide-7.html"><strong aria-hidden="true">7.</strong> Slide 7</a></li><li class="chapter-item expanded "><a href="slide-8.html"><strong aria-hidden="true">8.</strong> Slide 8</a></li><li class="chapter-item expanded "><a href="slide-9.html"><strong aria-hidden="true">9.</strong> Slide 9</a></li><li class="chapter-item expanded "><a href="slide-10.html"><strong aria-hidden="true">10.</strong> Slide 10</a></li><li class="chapter-item expanded "><a href="slide-11.html"><strong aria-hidden="true">11.</strong> Slide 11</a></li><li class="chapter-item expanded "><a href="slide-12.html"><strong aria-hidden="true">12.</strong> Slide 12</a></li><li class="chapter-item expanded "><a href="slide-13.html"><strong aria-hidden="true">13.</strong> Slide 13</a></li><li class="chapter-item expanded "><a href="slide-14.html"><strong aria-hidden="true">14.</strong> Slide 14</a></li><li class="chapter-item expanded "><a href="slide-15.html"><strong aria-hidden="true">15.</strong> Slide 15</a></li><li class="chapter-item expanded "><a href="slide-16.html"><strong aria-hidden="true">16.</strong> Slide 16</a></li><li class="chapter-item expanded "><a href="slide-17.html"><strong aria-hidden="true">17.</strong> Slide 17</a></li><li class="chapter-item expanded "><a href="slide-18.html"><strong aria-hidden="true">18.</strong> Slide 18</a></li><li class="chapter-item expanded "><a href="slide-19.html"><strong aria-hidden="true">19.</strong> Slide 19</a></li><li class="chapter-item expanded "><a href="slide-20.html"><strong aria-hidden="true">20.</strong> Slide 20</a></li><li class="chapter-item expanded "><a href="slide-21.html"><strong aria-hidden="true">21.</strong> Slide 21</a></li><li class="chapter-item expanded "><a href="slide-22.html"><strong aria-hidden="true">22.</strong> Slide 22</a></li><li class="chapter-item expanded "><a href="slide-23.html"><strong aria-hidden="true">23.</strong> Slide 23</a></li><li class="chapter-item expanded "><a href="slide-24.html"><strong aria-hidden="true">24.</strong> Slide 24</a></li><li class="chapter-item expanded "><a href="slide-25.html"><strong aria-hidden="true">25.</strong> Slide 25</a></li><li class="chapter-item expanded "><a href="slide-26.html"><strong aria-hidden="true">26.</strong> Slide 26</a></li><li class="chapter-item expanded "><a href="slide-27.html"><strong aria-hidden="true">27.</strong> Slide 27</a></li><li class="chapter-item expanded "><a href="slide-28.html"><strong aria-hidden="true">28.</strong> Slide 28</a></li><li class="chapter-item expanded "><a href="slide-29.html"><strong aria-hidden="true">29.</strong> Slide 29</a></li><li class="chapter-item expanded "><a href="slide-30.html"><strong aria-hidden="true">30.</strong> Slide 30</a></li><li class="chapter-item expanded "><a href="slide-31.html"><strong aria-hidden="true">31.</strong> Slide 31</a></li><li class="chapter-item expanded "><a href="slide-32.html"><strong aria-hidden="true">32.</strong> Slide 32</a></li><li class="chapter-item expanded "><a href="slide-33.html"><strong aria-hidden="true">33.</strong> Slide 33</a></li><li class="chapter-item expanded "><a href="slide-34.html"><strong aria-hidden="true">34.</strong> Slide 34</a></li><li class="chapter-item expanded "><a href="slide-35.html"><strong aria-hidden="true">35.</strong> Slide 35</a></li><li class="chapter-item expanded "><a href="slide-36.html"><strong aria-hidden="true">36.</strong> Slide 36</a></li><li class="chapter-item expanded "><a href="slide-37.html"><strong aria-hidden="true">37.</strong> Slide 37</a></li><li class="chapter-item expanded "><a href="slide-38.html"><strong aria-hidden="true">38.</strong> Slide 38</a></li><li class="chapter-item expanded "><a href="slide-39.html"><strong aria-hidden="true">39.</strong> Slide 39</a></li><li class="chapter-item expanded "><a href="slide-40.html"><strong aria-hidden="true">40.</strong> Slide 40</a></li><li class="chapter-item expanded "><a href="slide-41.html"><strong aria-hidden="true">41.</strong> Slide 41</a></li><li class="chapter-item expanded "><a href="slide-42.html"><strong aria-hidden="true">42.</strong> Slide 42</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container" style="position: fixed; display: block;">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button style="display:none" id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul style="display:none" id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                        </div>
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
 
-                        <h1 class="menu-title" style="display:none">Introduction to Rust</h1>
+                    <h1 class="menu-title">Introduction to Rust</h1>
 
-                        <div class="right-buttons" style="display:none">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
                     </div>
                 </div>
 
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
@@ -128,25 +132,25 @@
                 <div id="content" class="content">
                     <main>
                         <div class="title">
-<a class="header" href="#introduction-to-rust" id="introduction-to-rust"><h1>Introduction to Rust</h1></a>
-<a class="header" href="#a-gentle-exploration-of-the-language" id="a-gentle-exploration-of-the-language"><h3>A gentle exploration of the language</h3></a>
+<h1 id="introduction-to-rust"><a class="header" href="#introduction-to-rust">Introduction to Rust</a></h1>
+<h3 id="a-gentle-exploration-of-the-language"><a class="header" href="#a-gentle-exploration-of-the-language">A gentle exploration of the language</a></h3>
 <p><img src="media/rust-logo-blk.svg" alt="" /></p>
 </div>
-<a class="header" href="#whos-this-guy" id="whos-this-guy"><h1>Who's this guy?</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="whos-this-guy"><a class="header" href="#whos-this-guy">Who's this guy?</a></h1>
 <div style="float: left; padding-right: 1em; width: 25%">
 <p><img src="media/Sylvain-Wallez-sq-1024.jpg" alt="" /></p>
 </div>
 <div style="margin-left: 25%">
-<a class="header" href="#sylvain-wallez---bluxte" id="sylvain-wallez---bluxte"><h3>Sylvain Wallez - @bluxte</h3></a>
-<a class="header" href="#tech-lead---elastic-cloud" id="tech-lead---elastic-cloud"><h3>Tech lead - Elastic Cloud</h3></a>
+<h3 id="sylvain-wallez---bluxte"><a class="header" href="#sylvain-wallez---bluxte">Sylvain Wallez - @bluxte</a></h3>
+<h3 id="principal-engineer---elastic"><a class="header" href="#principal-engineer---elastic">Principal engineer - Elastic</a></h3>
 <p>Previously tech lead, CTO, architect, trainer, developer...<br />
 ...at OVH, Actoboard, Sigfox, Scoop.it, Joost, Anyware</p>
 <p>Member of the Apache Software Foundation since 2003</p>
 </div>
-<p><center class="clear"></p>
+<center class="clear">
 <p><img src="media/logo-elastic.svg" style="height: 2em;"><br>We're hiring!</p>
-<p></center></p>
-<a class="header" href="#on-the-menu" id="on-the-menu"><h1>On the menu</h1></a>
+</center>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="on-the-menu"><a class="header" href="#on-the-menu">On the menu</a></h1>
 <ul>
 <li>Where does Rust come from?</li>
 <li>Basics: functions, structures, methods</li>
@@ -155,32 +159,33 @@
 <li>Memory management</li>
 <li>Controlled concurrency</li>
 </ul>
-<a class="header" href="#rust" id="rust"><h1>Rust</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust"><a class="header" href="#rust">Rust</a></h1>
 <p>&quot;Empowering everyone to build reliable and efficient software&quot;</p>
 <ul>
 <li>Performance: blazingly fast and memory efficient.</li>
 <li>Reliability: rich type system &amp; ownership model guarantee memory safety &amp; thread safety.</li>
 <li>Productivity: great documentation, friendly compiler, awesome tooling.</li>
 </ul>
-<a class="header" href="#rust-1" id="rust-1"><h1>Rust</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust-1"><a class="header" href="#rust-1">Rust</a></h1>
 <p>&quot;Empowering everyone to build reliable and efficient software&quot;</p>
 <ul>
 <li>Performance: blazingly fast and memory efficient.</li>
 <li>Reliability: rich type system &amp; ownership model guarantee memory safety &amp; thread safety.</li>
 <li>Productivity: great documentation, friendly compiler, awesome tooling.</li>
 </ul>
-<p><center></p>
+<center>
 <p><img src="media/ferris.gif" alt="" /></p>
-<p></center></p>
-<a class="header" href="#learning-rust" id="learning-rust"><h1>Learning Rust</h1></a>
+</center>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="learning-rust"><a class="header" href="#learning-rust">Learning Rust</a></h1>
 <div style="float: left; width: 40%;">
-<p><img src="media/book-oreilly.jpg" alt="" /></p>
+<p><img src="media/book-oreilly-2.jpg" alt="" /></p>
 </div>
 <div style="float: right; width: 40%; text-align: center">
 <p><img src="media/book-nostarch.png" alt="" /></p>
-<p><small>Online at https://www.rust-lang.org/</small></p>
+<p><small> Online at https://www.rust-lang.org/ </small></p>
 </div>
-<a class="header" href="#rust-2" id="rust-2"><h1>Rust</h1></a>
+<div style="clear: both"></div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust-2"><a class="header" href="#rust-2">Rust</a></h1>
 <ul>
 <li>
 <p>Started in 2006 at Mozilla, first announced in 2010</p>
@@ -192,7 +197,7 @@
 <li>
 <p>First stable release in 2015</p>
 <ul>
-<li>New releases every 6 weeks, “edition 2018” released last December</li>
+<li>New releases every 6 weeks, “edition 2021” released in Oct '21</li>
 </ul>
 </li>
 <li>
@@ -200,16 +205,18 @@
 <ul>
 <li>AWS: Firecracker powers Lambda and Fargate</li>
 <li>Google: parts of the Fuschia operating system</li>
+<li>Linux: 2nd official language for the Kernel!</li>
 <li>CloudFlare: quic / http 3 implementation</li>
 <li>Dropbox: file storage</li>
 <li>Clever Cloud: reverse proxy</li>
-<li>Atlassian, Canonical, Coursera, Chef, Deliveroo, NPM, Sentry…</li>
+<li>Atlassian, Canonical, Coursera, Chef, Deliveroo, NPM, Sentry… </li>
+<li>Growing ecosystem for embedded development</li>
 </ul>
 </li>
 </ul>
-<a class="header" href="#the-rust-ecosystem" id="the-rust-ecosystem"><h1>The Rust ecosystem</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-rust-ecosystem"><a class="header" href="#the-rust-ecosystem">The Rust ecosystem</a></h1>
 <div style="float: left; width: 47%;">
-<p><img src="media/crates-io.png" alt="" /></p>
+<p><img src="media/crates-io-2.jpg" alt="" /></p>
 </div>
 <div style="float: right; width: 47%">
 <p><strong>crates.io – there’s a crate for that!</strong></p>
@@ -219,14 +226,16 @@ https://exercism.io/</p>
 <p>http://www.arewewebyet.org/<br />
 http://arewegameyet.com/<br />
 https://areweideyet.com/<br />
-http://www.arewelearningyet.com/</p>
+http://www.arewelearningyet.com/
+https://docs.rust-embedded.org/</p>
 </div>
-<a class="header" href="#getting-started-rustup--cargo" id="getting-started-rustup--cargo"><h1>Getting started: rustup &amp; cargo</h1></a>
-<a class="header" href="#rustup-the-rust-toolchain-manager" id="rustup-the-rust-toolchain-manager"><h2>Rustup: the Rust toolchain manager</h2></a>
+<div style="clear: both"></div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started-rustup--cargo"><a class="header" href="#getting-started-rustup--cargo">Getting started: rustup &amp; cargo</a></h1>
+<h2 id="rustup-the-rust-toolchain-manager"><a class="header" href="#rustup-the-rust-toolchain-manager">Rustup: the Rust toolchain manager</a></h2>
 <p>Manage versions, target OS and architectures</p>
 <p><code>curl https://sh.rustup.rs -sSf | sh</code> or download from https://rustup.rs/</p>
 <p><code>rustup doc --std</code> -- browse the docs locally!</p>
-<a class="header" href="#cargo-the-rust-build-system" id="cargo-the-rust-build-system"><h2>Cargo: the Rust build system</h2></a>
+<h2 id="cargo-the-rust-build-system"><a class="header" href="#cargo-the-rust-build-system">Cargo: the Rust build system</a></h2>
 <pre><code>cargo new --bin rust_intro
 cargo run
 </code></pre>
@@ -235,7 +244,7 @@ cargo run
 └── src
     └── main.rs
 </code></pre>
-<a class="header" href="#hello-rust" id="hello-rust"><h1>Hello, Rust!</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-rust"><a class="header" href="#hello-rust">Hello, Rust!</a></h1>
 <p>Cargo.toml</p>
 <pre><code>[package]
 name = &quot;rust_intro&quot;
@@ -246,13 +255,13 @@ edition = &quot;2018&quot;
 [dependencies]
 </code></pre>
 <p>main.rs</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     println!(&quot;Hello, world!&quot;);
 }
 </code></pre></pre>
-<a class="header" href="#variables--type-inference" id="variables--type-inference"><h1>Variables &amp; type inference</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variables--type-inference"><a class="header" href="#variables--type-inference">Variables &amp; type inference</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let answer = 42;
     
     println!(&quot;Hello {}&quot;, answer);
@@ -260,9 +269,9 @@ edition = &quot;2018&quot;
     assert_eq!(answer,42);
 }
 </code></pre></pre>
-<a class="header" href="#control-structures" id="control-structures"><h1>Control structures</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="control-structures"><a class="header" href="#control-structures">Control structures</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     for i in 0..5 {
         if i % 2 == 0 {
             println!(&quot;{} is even&quot;, i);
@@ -272,18 +281,18 @@ edition = &quot;2018&quot;
     }
 }
 </code></pre></pre>
-<a class="header" href="#if-as-an-expression" id="if-as-an-expression"><h1>If as an expression</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if-as-an-expression"><a class="header" href="#if-as-an-expression">If as an expression</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     for i in 0..5 {
         let even_odd = if i % 2 == 0 {&quot;even&quot;} else {&quot;odd&quot;};
         println!(&quot;{} is {}&quot;, i, even_odd);
     }
 }
 </code></pre></pre>
-<a class="header" href="#function-declaration" id="function-declaration"><h1>Function declaration</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function-declaration"><a class="header" href="#function-declaration">Function declaration</a></h1>
 <p>Parameters and return types must be explicit</p>
-<pre><pre class="playpen"><code class="language-rust editable">fn is_even(i: i32) -&gt; bool {
+<pre><pre class="playground"><code class="language-rust editable">fn is_even(i: i32) -&gt; bool {
     i % 2 == 0
 }
 
@@ -294,9 +303,9 @@ fn main() {
     }
 }
 </code></pre></pre>
-<a class="header" href="#immutability-by-default" id="immutability-by-default"><h1>Immutability by default</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="immutability-by-default"><a class="header" href="#immutability-by-default">Immutability by default</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let mut sum = 0;
     for i in 0..5 {
         sum += i;
@@ -304,9 +313,9 @@ fn main() {
     println!(&quot;sum is {}&quot;, sum);
 }
 </code></pre></pre>
-<a class="header" href="#functional-iteration" id="functional-iteration"><h1>Functional iteration</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functional-iteration"><a class="header" href="#functional-iteration">Functional iteration</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn is_even(i: i32) -&gt; bool {
+<pre><pre class="playground"><code class="language-rust editable">fn is_even(i: i32) -&gt; bool {
     i % 2 == 0
 }
 
@@ -319,9 +328,9 @@ fn main() {
     println!(&quot;sum of even numbers is {}&quot;, sum);
 }
 </code></pre></pre>
-<a class="header" href="#passing-values-by-reference" id="passing-values-by-reference"><h1>Passing values by reference</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="passing-values-by-reference"><a class="header" href="#passing-values-by-reference">Passing values by reference</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn is_even(i: &amp;i32) -&gt; bool {
+<pre><pre class="playground"><code class="language-rust editable">fn is_even(i: &amp;i32) -&gt; bool {
     i % 2 == 0
 }
 
@@ -334,9 +343,9 @@ fn main() {
     println!(&quot;sum of even numbers is {}&quot;, sum);
 }
 </code></pre></pre>
-<a class="header" href="#mutable-function-parameters" id="mutable-function-parameters"><h1>Mutable function parameters</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mutable-function-parameters"><a class="header" href="#mutable-function-parameters">Mutable function parameters</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn modifies(x: &amp;mut f64) {
+<pre><pre class="playground"><code class="language-rust editable">fn modifies(x: &amp;mut f64) {
     *x = 1.0;
 }
 
@@ -346,12 +355,12 @@ fn main() {
     println!(&quot;result is {}&quot;, result);
 }
 </code></pre></pre>
-<div class="title">
-<a class="header" href="#vectors-enums-structures" id="vectors-enums-structures"><h1>Vectors, enums, structures</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><div class="title">
+<h1 id="vectors-enums-structures"><a class="header" href="#vectors-enums-structures">Vectors, enums, structures</a></h1>
 </div>
-<a class="header" href="#vectors" id="vectors"><h1>Vectors</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vectors"><a class="header" href="#vectors">Vectors</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let mut v = Vec::new();
     v.push(10);
     v.push(20);
@@ -365,19 +374,20 @@ fn main() {
     println!(&quot;maybe_first is {:?}&quot;, maybe_first);
 }
 </code></pre></pre>
-<a class="header" href="#some-none-the-option-enum" id="some-none-the-option-enum"><h1>Some, None? The Option enum</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="some-none-the-option-enum"><a class="header" href="#some-none-the-option-enum">Some, None? The Option enum</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-# #![allow(unused_variables)]
-#fn main() {
-pub enum Option&lt;T&gt; {
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub enum Option&lt;T&gt; {
     None,
     Some(T),
 }
-#}</code></pre></pre>
-<a class="header" href="#pattern-matching" id="pattern-matching"><h1>Pattern matching</h1></a>
+<span class="boring">}
+</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pattern-matching"><a class="header" href="#pattern-matching">Pattern matching</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let v = vec![10, 20, 30]; // initialization macro    
     let idx = 0;
     
@@ -387,9 +397,9 @@ pub enum Option&lt;T&gt; {
     }
 }
 </code></pre></pre>
-<a class="header" href="#destructuring-assigment" id="destructuring-assigment"><h1>Destructuring assigment</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="destructuring-assigment"><a class="header" href="#destructuring-assigment">Destructuring assigment</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let v = vec![10, 20, 30];    
     let idx = 0;
     
@@ -398,9 +408,9 @@ pub enum Option&lt;T&gt; {
     }
 }
 </code></pre></pre>
-<a class="header" href="#more-pattern-matching" id="more-pattern-matching"><h1>More pattern matching</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="more-pattern-matching"><a class="header" href="#more-pattern-matching">More pattern matching</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let n = 0;
     let text = match n {
         0 =&gt; &quot;zero&quot;,
@@ -412,9 +422,9 @@ pub enum Option&lt;T&gt; {
     println!(&quot;{} is {}&quot;, n, text);
 }
 </code></pre></pre>
-<a class="header" href="#tuples" id="tuples"><h1>Tuples</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuples"><a class="header" href="#tuples">Tuples</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">fn add_mul(x: f64, y: f64) -&gt; (f64, f64) {
+<pre><pre class="playground"><code class="language-rust editable">fn add_mul(x: f64, y: f64) -&gt; (f64, f64) {
     (x + y, x * y)
 }
 
@@ -429,9 +439,9 @@ fn main() {
     println!(&quot;add {} mul {}&quot;, add, mul);
 }
 </code></pre></pre>
-<a class="header" href="#structs" id="structs"><h1>Structs</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="structs"><a class="header" href="#structs">Structs</a></h1>
 <p> </p>
-<pre><pre class="playpen"><code class="language-rust editable">struct Person {
+<pre><pre class="playground"><code class="language-rust editable">struct Person {
     first_name: String,
     last_name: String
 }
@@ -444,8 +454,8 @@ fn main() {
     println!(&quot;This is {} {}&quot;, p.first_name, p.last_name);
 }
 </code></pre></pre>
-<a class="header" href="#struct-implementation" id="struct-implementation"><h1>Struct implementation</h1></a>
-<pre><pre class="playpen"><code class="language-rust editable">struct Person {
+<div style="break-before: page; page-break-before: always;"></div><h1 id="struct-implementation"><a class="header" href="#struct-implementation">Struct implementation</a></h1>
+<pre><pre class="playground"><code class="language-rust editable">struct Person {
     first_name: String,
     last_name: String
 }
@@ -465,8 +475,8 @@ fn main() {
 }
 </code></pre></pre>
 <p>(<code>String</code> are objects, <code>&amp;str</code> are references to char arrays)</p>
-<a class="header" href="#struct-methods" id="struct-methods"><h1>Struct methods</h1></a>
-<pre><pre class="playpen"><code class="language-rust editable">struct Person {
+<div style="break-before: page; page-break-before: always;"></div><h1 id="struct-methods"><a class="header" href="#struct-methods">Struct methods</a></h1>
+<pre><pre class="playground"><code class="language-rust editable">struct Person {
     first_name: String,
     last_name: String
 }
@@ -491,8 +501,8 @@ fn main() {
 }
 
 </code></pre></pre>
-<a class="header" href="#variations-on-self" id="variations-on-self"><h1>Variations on <code>self</code></h1></a>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug)]
+<div style="break-before: page; page-break-before: always;"></div><h1 id="variations-on-self"><a class="header" href="#variations-on-self">Variations on <code>self</code></a></h1>
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Debug)]
 struct Person {
     first_name: String,
     last_name: String
@@ -532,7 +542,7 @@ fn main() {
     // println!(&quot;{:?}&quot;, p);
 }
 </code></pre></pre>
-<a class="header" href="#struct-implementations-wrapping-up" id="struct-implementations-wrapping-up"><h1>Struct implementations: wrapping up</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="struct-implementations-wrapping-up"><a class="header" href="#struct-implementations-wrapping-up">Struct implementations: wrapping up</a></h1>
 <ul>
 <li>
 <p>no <code>self</code> argument: associated functions, like the <code>new</code> &quot;constructor&quot;</p>
@@ -547,12 +557,12 @@ fn main() {
 <p><code>self</code> argument: will consume the value, which will move</p>
 </li>
 </ul>
-<div class="title">
-<a class="header" href="#ownership-and-borrows" id="ownership-and-borrows"><h1>Ownership and borrows</h1></a>
-<a class="header" href="#there-can-be-only-one-owner" id="there-can-be-only-one-owner"><h3>There can be only one owner</h3></a>
+<div style="break-before: page; page-break-before: always;"></div><div class="title">
+<h1 id="ownership-and-borrows"><a class="header" href="#ownership-and-borrows">Ownership and borrows</a></h1>
+<h3 id="there-can-be-only-one-owner"><a class="header" href="#there-can-be-only-one-owner">There can be only one owner</a></h3>
 </div>
-<a class="header" href="#there-can-be-only-one-owner-1" id="there-can-be-only-one-owner-1"><h1>There can be only one owner</h1></a>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug)]
+<div style="break-before: page; page-break-before: always;"></div><h1 id="there-can-be-only-one-owner-1"><a class="header" href="#there-can-be-only-one-owner-1">There can be only one owner</a></h1>
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Debug)]
 struct Person { name: String }
 
 impl Person {
@@ -583,12 +593,12 @@ fn main() {
     // println!(&quot;{:?}&quot;, p); // will fail
 }
 </code></pre></pre>
-<div class="title">
-<a class="header" href="#traits" id="traits"><h1>Traits</h1></a>
-<a class="header" href="#type-classes--ad-hoc-polymorphism" id="type-classes--ad-hoc-polymorphism"><h3>Type classes &amp; ad-hoc polymorphism</h3></a>
+<div style="break-before: page; page-break-before: always;"></div><div class="title">
+<h1 id="traits"><a class="header" href="#traits">Traits</a></h1>
+<h3 id="type-classes--ad-hoc-polymorphism"><a class="header" href="#type-classes--ad-hoc-polymorphism">Type classes &amp; ad-hoc polymorphism</a></h3>
 </div>
-<a class="header" href="#extending-existing-types" id="extending-existing-types"><h1>Extending existing types</h1></a>
-<pre><pre class="playpen"><code class="language-rust editable">trait Show {
+<div style="break-before: page; page-break-before: always;"></div><h1 id="extending-existing-types"><a class="header" href="#extending-existing-types">Extending existing types</a></h1>
+<pre><pre class="playground"><code class="language-rust editable">trait Show {
     fn show(&amp;self) -&gt; String;
 }
 
@@ -612,8 +622,8 @@ fn main() {
 }
 </code></pre></pre>
 <p>Sweet, we've added new methods to <code>i32</code> and <code>f64</code>!</p>
-<a class="header" href="#adding-type-constraints" id="adding-type-constraints"><h1>Adding type constraints</h1></a>
-<pre><pre class="playpen"><code class="language-rust editable">trait Show {
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adding-type-constraints"><a class="header" href="#adding-type-constraints">Adding type constraints</a></h1>
+<pre><pre class="playground"><code class="language-rust editable">trait Show {
     fn show(&amp;self) -&gt; String;
 }
 
@@ -639,8 +649,8 @@ fn main() {
     println!(&quot;Here is {}&quot;, void.show());
 }
 </code></pre></pre>
-<a class="header" href="#box-dynamic-allocation" id="box-dynamic-allocation"><h1>Box: dynamic allocation</h1></a>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug)]
+<div style="break-before: page; page-break-before: always;"></div><h1 id="box-dynamic-allocation"><a class="header" href="#box-dynamic-allocation">Box: dynamic allocation</a></h1>
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Debug)]
 struct Node {
     value: String,
     left: Option&lt;Box&lt;Node&gt;&gt;,
@@ -670,11 +680,11 @@ fn main() {
     println!(&quot;{:#?}&quot;, root);
 }
 </code></pre></pre>
-<a class="header" href="#automatic-memory-reclamation" id="automatic-memory-reclamation"><h1>Automatic memory reclamation</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="automatic-memory-reclamation"><a class="header" href="#automatic-memory-reclamation">Automatic memory reclamation</a></h1>
 <p><code>Box::new(node)</code> allocates on the heap and <code>node</code> is <em>moved</em> inside the box. Ownership of the box can move, but you
 can only get a reference to its content.</p>
 <p>The memory is automatically freed when the box has no more owner (it is &quot;dropped&quot;).</p>
-<pre><pre class="playpen"><code class="language-rust editable">struct DropTracer(i32);
+<pre><pre class="playground"><code class="language-rust editable">struct DropTracer(i32);
 
 impl Drop for DropTracer {
     fn drop(&amp;mut self) {
@@ -683,8 +693,8 @@ impl Drop for DropTracer {
 }
 
 fn main() {
-    let b = DropTracer(0);
-    println!(&quot;a contains {}&quot;, b.0);
+    let a = DropTracer(0);
+    println!(&quot;a contains {}&quot;, a.0);
 
     let mut b = Box::new(DropTracer(1));
     println!(&quot;b contains {}&quot;, b.0);
@@ -696,8 +706,8 @@ fn main() {
     println!(&quot;Exiting&quot;);
 }
 </code></pre></pre>
-<a class="header" href="#a-generic-sorted-tree" id="a-generic-sorted-tree"><h1>A generic sorted tree</h1></a>
-<pre><pre class="playpen"><code class="language-rust editable">#[derive(Debug)]
+<div style="break-before: page; page-break-before: always;"></div><h1 id="a-generic-sorted-tree"><a class="header" href="#a-generic-sorted-tree">A generic sorted tree</a></h1>
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Debug)]
 struct Node&lt;T&gt; {
     value: T,
     left: Option&lt;Box&lt;Node&lt;T&gt;&gt;&gt;,
@@ -741,11 +751,11 @@ fn main() {
     println!(&quot;{:#?}&quot;, root);
 }
 </code></pre></pre>
-<div class="title">
-<a class="header" href="#shared-references" id="shared-references"><h1>Shared references</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><div class="title">
+<h1 id="shared-references"><a class="header" href="#shared-references">Shared references</a></h1>
 </div>
-<a class="header" href="#reference-counters" id="reference-counters"><h1>Reference counters</h1></a>
-<pre><pre class="playpen"><code class="language-rust editable">use std::rc::Rc;
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-counters"><a class="header" href="#reference-counters">Reference counters</a></h1>
+<pre><pre class="playground"><code class="language-rust editable">use std::rc::Rc;
 
 fn main() {
     let s = &quot;hello dolly&quot;.to_string();
@@ -768,34 +778,33 @@ fn main() {
     println!(&quot;{:?}&quot;, rs3.upgrade());
 }
 </code></pre></pre>
-<a class="header" href="#theres-a-lot-more-to-talk-about" id="theres-a-lot-more-to-talk-about"><h1>There's a lot more to talk about...</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="theres-a-lot-more-to-talk-about"><a class="header" href="#theres-a-lot-more-to-talk-about">There's a lot more to talk about...</a></h1>
 <ul>
 <li>error handling</li>
 <li>multithreading and the <code>Sync</code> and <code>Send</code> traits</li>
 <li><code>Mutex</code> and <code>RwLock</code> from the standard library</li>
+<li>async programming</li>
 <li>interior mutability</li>
 <li>etc...</li>
 </ul>
 <p>Compared to other languages, Rust is simple but has non conventional features that are its strength.</p>
 <p>If you want to use it, take the time to <em>learn</em> it. Ferris will thank you :-)</p>
-<div class="title">
-<a class="header" href="#thanks" id="thanks"><h1>Thanks!</h1></a>
+<div style="break-before: page; page-break-before: always;"></div><div class="title">
+<h1 id="thanks"><a class="header" href="#thanks">Thanks!</a></h1>
 <p><img src="media/ferris.gif" alt="" /></p>
 <p> </p>
 <p> </p>
-<p><span style="font-size: 50%">
-Presentation contents inspired by https://stevedonovan.github.io/rust-gentle-intro/<br>
-Sources available at https://github.com/swallez/introduction-to-rust/
-</span></p>
+<span style="font-size: 70%">
+    Presentation contents inspired by https://stevedonovan.github.io/rust-gentle-intro/<br>
+    Sources available at https://github.com/swallez/introduction-to-rust/
+</span>
 </div>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
 
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -803,43 +812,36 @@ Sources available at https://github.com/swallez/introduction-to-rust/
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
 
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
         <script src="ace.js" type="text/javascript" charset="utf-8"></script>
         <script src="editor.js" type="text/javascript" charset="utf-8"></script>
         <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
         <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
         <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
-        
 
-        
 
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
-        
         <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-        
-        
 
     </body>
 </html>

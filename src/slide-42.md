@@ -9,7 +9,7 @@
 
 &nbsp;
 
-<span style="font-size: 50%">
+<span style="font-size: 70%">
     Presentation contents inspired by https://stevedonovan.github.io/rust-gentle-intro/<br>
     Sources available at https://github.com/swallez/introduction-to-rust/
 </span>

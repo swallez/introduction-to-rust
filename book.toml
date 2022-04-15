@@ -11,7 +11,7 @@ additional-css = ["src/media/style.css"]
 [output.html.search]
 enable = false
 
-[output.html.playpen]
+[output.html.playground]
 editable = true
 
 [build]
