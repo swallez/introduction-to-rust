@@ -1,32 +1,49 @@
 
-# Automatic memory reclamation
-
-`Box::new(node)` allocates on the heap and `node` is _moved_ inside the box. Ownership of the box can move, but you
-can only get a reference to its content.
-
-The memory is automatically freed when the box has no more owner (it is "dropped").
+# A generic sorted tree
 
 ```rust,editable
-struct DropTracer(i32);
+#[derive(Debug)]
+struct Node<T> {
+    value: T,
+    left: Option<Box<Node<T>>>,
+    right: Option<Box<Node<T>>>,
+}
 
-impl Drop for DropTracer {
-    fn drop(&mut self) {
-        println!("Dropping {}", self.0);
+impl<T: Ord> Node<T> {
+    fn new(v: T) -> Node<T> {
+        Node{value: v, left: None, right: None}
+    }
+
+    fn set_left(&mut self, node: Node<T>) {
+        self.left = Some(Box::new(node));
+    }
+
+    fn set_right(&mut self, node: Node<T>) {
+        self.right = Some(Box::new(node));
+    }
+    
+    fn insert(&mut self, data: T) {
+        if data < self.value {       // <-- Ord is used here
+            match self.left {
+                Some(ref mut n) => n.insert(data),
+                None => self.set_left(Self::new(data)),
+            }
+        } else {
+            match self.right {
+                Some(ref mut n) => n.insert(data),
+                None => self.set_right(Self::new(data)),
+            }
+        }
     }
 }
 
 fn main() {
-    let a = DropTracer(0);
-    println!("a contains {}", a.0);
+    let mut root = Node::new("root".to_string());
+    root.insert("one".to_string());
+    root.insert("two".to_string());
+    root.insert("four".to_string());
 
-    let mut b = Box::new(DropTracer(1));
-    println!("b contains {}", b.0);
-    
-    println!("Replacing b");
-    b = Box::new(DropTracer(2));
-    println!("b contains {}", b.0);
-   
-    println!("Exiting");
+    println!("{:#?}", root);
 }
 ```
 

@@ -1,28 +1,26 @@
 
-# Reference counters
+# Automatic file closing
+
+Ownership and lifetimes will automatically close files.
 
 ```rust,editable
-use std::rc::Rc;
+use std::fs::File;
+use std::path::Path;
+use std::io::Read;
+
+fn read_file() -> String {
+    let mut text = String::new();
+    let path = Path::new("file.txt");
+    
+    let mut file = File::open(path).unwrap();
+    file.read_to_string(&mut text).unwrap();
+    
+    return text;
+}
 
 fn main() {
-    let s = "hello dolly".to_string();
-    
-    let rs1 = Rc::new(s); // s moves to heap; ref count 1
-    
-    println!("{}", Rc::strong_count(&rs1));
-    
-    let rs2 = rs1.clone(); // ref count 2
-    
-    println!("{}", Rc::strong_count(&rs1));
-
-    let rs3 = Rc::downgrade(&rs1); // weak reference, doesn't inc count
-
-    println!("{:?}, {:?}, {:?}", rs1, rs2, rs3.upgrade());
-    
-    println!("Dropping strong references");
-    drop(rs1);
-    drop(rs2);
-    println!("{:?}", rs3.upgrade());
+    let str = read_file();
+    println!("Text is {}", str);
 }
 ```
 

@@ -1,18 +1,36 @@
 
-<div class="title">
+# The `Error` type
 
-# Thanks!
+```rust
+pub enum Result<T, E> {
+    /// Contains the success value
+    Ok(T),
+    /// Contains the error value
+    Err(E),
+}
+```
 
-![](media/ferris.gif)
+Reading a file with proper error handling:
 
-&nbsp;
+```rust,editable
+use std::fs::File;
+use std::path::Path;
+use std::io::Read;
 
-&nbsp;
+fn read_file() -> Result<String, std::io::Error> {
+    let mut text = String::new();
+    let path = Path::new("file.txt");
+    
+    let mut file = File::open(path)?;
+    file.read_to_string(&mut text)?;
+    
+    return Ok(text);
+}
 
-<span style="font-size: 70%">
-    Presentation contents inspired by https://stevedonovan.github.io/rust-gentle-intro/<br>
-    Sources available at https://github.com/swallez/introduction-to-rust/
-</span>
-
-</div>
+fn main() -> Result<(), std::io::Error>{
+    let str = read_file()?;
+    println!("Text is {}", str);
+    Ok(())
+}
+```
 

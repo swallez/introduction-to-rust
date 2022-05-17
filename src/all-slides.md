@@ -753,39 +753,6 @@ fn main() {
 
 ---------------
 
-# Automatic memory reclamation
-
-`Box::new(node)` allocates on the heap and `node` is _moved_ inside the box. Ownership of the box can move, but you
-can only get a reference to its content.
-
-The memory is automatically freed when the box has no more owner (it is "dropped").
-
-```rust,editable
-struct DropTracer(i32);
-
-impl Drop for DropTracer {
-    fn drop(&mut self) {
-        println!("Dropping {}", self.0);
-    }
-}
-
-fn main() {
-    let a = DropTracer(0);
-    println!("a contains {}", a.0);
-
-    let mut b = Box::new(DropTracer(1));
-    println!("b contains {}", b.0);
-    
-    println!("Replacing b");
-    b = Box::new(DropTracer(2));
-    println!("b contains {}", b.0);
-   
-    println!("Exiting");
-}
-```
-
----------------
-
 # A generic sorted tree
 
 ```rust,editable
@@ -834,41 +801,118 @@ fn main() {
 }
 ```
 
+---------------
+
+<div class="title">
+
+# Automatic memory reclamation
+
+### Memory leaks, resource leaks? Gone!
+
+</div>
+
+---------------
+
+# Automatic memory reclamation
+
+`Box::new(node)` allocates on the heap and `node` is _moved_ inside the box. Ownership of the box can move, but you
+can only get a reference to its content.
+
+The memory is automatically freed when the box has no more owner (it is "dropped").
+
+```rust,editable
+struct DropTracer(i32);
+
+impl Drop for DropTracer {
+    fn drop(&mut self) {
+        println!("Dropping {}", self.0);
+    }
+}
+
+fn main() {
+    let a = DropTracer(0);
+    println!("a contains {}", a.0);
+
+    let mut b = Box::new(DropTracer(1));
+    println!("b contains {}", b.0);
+    
+    println!("Replacing b");
+    b = Box::new(DropTracer(2));
+    println!("b contains {}", b.0);
+   
+    println!("Exiting");
+}
+```
+
+---------------
+
+# Automatic file closing
+
+Ownership and lifetimes will automatically close files.
+
+```rust,editable
+use std::fs::File;
+use std::path::Path;
+use std::io::Read;
+
+fn read_file() -> String {
+    let mut text = String::new();
+    let path = Path::new("file.txt");
+    
+    let mut file = File::open(path).unwrap();
+    file.read_to_string(&mut text).unwrap();
+    
+    return text;
+}
+
+fn main() {
+    let str = read_file();
+    println!("Text is {}", str);
+}
+```
 
 ---------------
 
 <div class="title">
 
-# Shared references
+# Error handling
 
 </div>
 
----------------------
+---------------
 
-# Reference counters
+# The `Error` type
+
+```rust
+pub enum Result<T, E> {
+    /// Contains the success value
+    Ok(T),
+    /// Contains the error value
+    Err(E),
+}
+```
+
+Reading a file with proper error handling:
 
 ```rust,editable
-use std::rc::Rc;
+use std::fs::File;
+use std::path::Path;
+use std::io::Read;
 
-fn main() {
-    let s = "hello dolly".to_string();
+fn read_file() -> Result<String, std::io::Error> {
+    let mut text = String::new();
+    let path = Path::new("file.txt");
     
-    let rs1 = Rc::new(s); // s moves to heap; ref count 1
+    let mut file = File::open(path)?;
+    file.read_to_string(&mut text)?;
     
-    println!("{}", Rc::strong_count(&rs1));
-    
-    let rs2 = rs1.clone(); // ref count 2
-    
-    println!("{}", Rc::strong_count(&rs1));
+    return Ok(text);
+}
 
-    let rs3 = Rc::downgrade(&rs1); // weak reference, doesn't inc count
-
-    println!("{:?}, {:?}, {:?}", rs1, rs2, rs3.upgrade());
-    
-    println!("Dropping strong references");
-    drop(rs1);
-    drop(rs2);
-    println!("{:?}", rs3.upgrade());
+fn main() -> Result<(), std::io::Error>{
+    let str = read_file()?;
+    println!("Text is {}", str);
+    Ok(())
 }
 ```
 
@@ -876,7 +920,7 @@ fn main() {
 
 # There's a lot more to talk about...
 
-* error handling
+* shared references with reference counting
 * multithreading and the `Sync` and `Send` traits
 * `Mutex` and `RwLock` from the standard library
 * async programming
